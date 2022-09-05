@@ -4,6 +4,7 @@ import framebuf
 import time
 import random
 
+# display code sourced from https://github.com/Guitarman9119/Raspberry-Pi-Pico-/tree/main/SSD1306%20OLED%20Display
 
 i2c = I2C(0, scl = Pin(17), sda = Pin(16), freq=400000)
 img = 'face mouth closed.pbm'
