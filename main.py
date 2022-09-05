@@ -60,7 +60,4 @@ while True:
         display.show()
         time.sleep(.2)
         
-        
-    
-    
     #random emotes after i = set number of loops a random emote is displayed for 1 sec i is reset to 0
