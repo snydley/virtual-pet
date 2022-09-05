@@ -7,7 +7,7 @@ import time
 i2c = I2C(0, scl = Pin(17), sda = Pin(16), freq=400000)
 img = 'face mouth closed.pbm'
 img2 = 'face eyes closed mouth closed.pbm'
-img3 = 'face happy eyes mouth closed.pmb'
+img3 = 'face happy eyes mouth closed.pbm'
 display = SSD1306_I2C(128, 64, i2c)
 i = 0
 
