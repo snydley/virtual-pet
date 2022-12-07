@@ -17,7 +17,7 @@ display = SSD1306_I2C(128, 64, i2c)
 i = 0
 
 while True:
-    #open image, put your image here
+    #default look and clockwork code for animation
     with open(img, 'rb') as f:
         f.readline() # number
         f.readline() # Creator
@@ -53,6 +53,7 @@ while True:
         i = i - i
 
     if i == 10:
+        #halfway to falling asleep glitch animation
         with open('face glitch1.pbm', 'rb') as f:
            f.readline() # number
            f.readline() # Creator
@@ -106,7 +107,7 @@ while True:
         time.sleep(0.05)
     
     if emote == 1:
-        
+        #random emote is initated, i is reset
         with open(emogfx, 'rb') as f:
            f.readline() # number
            f.readline() # Creator
@@ -122,7 +123,7 @@ while True:
         i = i - i
         
     if i > 0:
-        
+        #blink animation
         with open(img2, 'rb') as f:
            f.readline() # number
            f.readline() # Creator
@@ -139,6 +140,6 @@ while True:
         
     
     
-    #set glitch animation to 10
+
 
 
