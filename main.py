@@ -9,7 +9,7 @@ import random
 i2c = I2C(0, scl = Pin(17), sda = Pin(16), freq=400000)
 img = 'face mouth closed.pbm'
 img2 = 'face eyes closed mouth closed.pbm'
-img3 = ['face annoyed.pbm', 'face happy eyes mouth open.pbm', 'face eyes closed mouth open.pbm', 'face mouth open.pbm', 'face glitch1.pbm', 'face sleeping.pbm', 'face glitch2.pbm', 'face squint mouth closed.pbm', 'face glitch3.pbm', 'face squint mouth open.pbm', 'face glitch4.pbm', 'face worried.pbm', 'face happy eyes mouth closed.pbm', 'smile.pbm']
+img3 = ['face annoyed.pbm', 'face happy eyes mouth open.pbm', 'face eyes closed mouth open.pbm', 'face mouth open.pbm', 'face squint mouth closed.pbm', 'face squint mouth open.pbm', 'face worried.pbm', 'face happy eyes mouth closed.pbm', 'smile.pbm']
 #img3 = 'face annoyed.pbm'
 
 
@@ -29,18 +29,85 @@ while True:
     display.invert(0)
     display.blit(fbuf, 0, 0)
     display.show()
-    time.sleep(5)
-    emote = random.choice(img3)
-    i += 1
-    glitch = random.randint(1,10)
+    time.sleep(3) # cycle speed
+    emogfx = random.choice(img3)
+    i += 1 # cycle counter
+    emote = random.randint(1,5) # chance of emote
     #print(random.randint(1,10))
-    #    print(i)
-
-    
-    
-    if glitch == 2:
+    print(i)
         
-        with open(emote, 'rb') as f:
+    if i >=20:
+        # no emotes in 20 cycles degyo falls asleep
+        with open('face sleeping.pbm', 'rb') as f:
+           f.readline() # number
+           f.readline() # Creator
+           f.readline() # Dimensions
+           data = bytearray(f.read())
+    
+        fbuf = framebuf.FrameBuffer(data, 128, 64, framebuf.MONO_HLSB)
+
+        display.invert(0)
+        display.blit(fbuf, 0, 0)
+        display.show()
+        time.sleep(60)
+        i = i - i
+
+    if i == 10:
+        with open('face glitch1.pbm', 'rb') as f:
+           f.readline() # number
+           f.readline() # Creator
+           f.readline() # Dimensions
+           data = bytearray(f.read())
+    
+        fbuf = framebuf.FrameBuffer(data, 128, 64, framebuf.MONO_HLSB)
+
+        display.invert(0)
+        display.blit(fbuf, 0, 0)
+        display.show()
+        time.sleep(0.05)
+        
+        with open('face glitch2.pbm', 'rb') as f:
+           f.readline() # number
+           f.readline() # Creator
+           f.readline() # Dimensions
+           data = bytearray(f.read())
+    
+        fbuf = framebuf.FrameBuffer(data, 128, 64, framebuf.MONO_HLSB)
+
+        display.invert(0)
+        display.blit(fbuf, 0, 0)
+        display.show()
+        time.sleep(0.05)
+        
+        with open('face glitch3.pbm', 'rb') as f:
+           f.readline() # number
+           f.readline() # Creator
+           f.readline() # Dimensions
+           data = bytearray(f.read())
+    
+        fbuf = framebuf.FrameBuffer(data, 128, 64, framebuf.MONO_HLSB)
+
+        display.invert(0)
+        display.blit(fbuf, 0, 0)
+        display.show()
+        time.sleep(0.5)
+        
+        with open('face glitch4.pbm', 'rb') as f:
+           f.readline() # number
+           f.readline() # Creator
+           f.readline() # Dimensions
+           data = bytearray(f.read())
+    
+        fbuf = framebuf.FrameBuffer(data, 128, 64, framebuf.MONO_HLSB)
+
+        display.invert(0)
+        display.blit(fbuf, 0, 0)
+        display.show()
+        time.sleep(0.05)
+    
+    if emote == 1:
+        
+        with open(emogfx, 'rb') as f:
            f.readline() # number
            f.readline() # Creator
            f.readline() # Dimensions
@@ -72,6 +139,6 @@ while True:
         
     
     
-    #random emotes after i = set number of loops a random emote is displayed for x sec i is reset to 0
-    # use random.choice(img3) **add all emotes to img3** use random.randint(1,10)
     #set glitch animation to 10
+
+
